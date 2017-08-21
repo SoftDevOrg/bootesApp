@@ -2,60 +2,60 @@ function Api() {
     this._data = {
         categories: [
             {
-                id: 1,
+                key: 1,
                 name_en: 'Salads',
                 name_es: 'Ensaladas',
                 description_en: 'Fresh and Healthy',
                 description_es: 'Fresco y Saludable',
-                imageUrl: 'https://lunagrill.com/wp-content/uploads/2015/08/Salads-Greek.jpg'
+                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg'
             },
             {
-                id: 2,
+                key: 2,
                 name_en: 'Pizza',
                 name_es: 'Pizza',
                 description_en: 'The Italian Way',
                 description_es: 'The Italian Way',
-                imageUrl: 'http://palermos67.com/wp-content/uploads/2017/07/free-pizza-for-a-year.jpg'
+                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg'
             },
             {
-                id: 3,
+                key: 3,
                 name_en: 'Spanish Food',
                 name_es: 'Comida Espa',
                 description_en: 'The Italian Way',
                 description_es: 'The Italian Way',
-                imageUrl: 'https://image.afcdn.com/story/20150820/-743004_w767h767c1cx511cy250.jpg'
+                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg'
             }
         ],
         products: [
             {
-                id: 1,
+                key: 1,
                 name_en: 'Salads',
                 name_es: 'Ensaladas',
                 description_en: 'Fresh and Healthy',
                 description_es: 'Fresco y Saludable',
-                imageUrl: 'https://lunagrill.com/wp-content/uploads/2015/08/Salads-Greek.jpg',
+                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg',
                 category: 1,
                 usd_price: 5.00,
                 cop_price: 12000
             },
             {
-                id: 1,
+                key: 1,
                 name_en: 'Salads',
                 name_es: 'Ensaladas',
                 description_en: 'Fresh and Healthy',
                 description_es: 'Fresco y Saludable',
-                imageUrl: 'https://lunagrill.com/wp-content/uploads/2015/08/Salads-Greek.jpg',
+                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg',
                 category: 2,
                 usd_price: 5.00,
                 cop_price: 12000
             },
             {
-                id: 1,
+                key: 1,
                 name_en: 'Salads',
                 name_es: 'Ensaladas',
                 description_en: 'Fresh and Healthy',
                 description_es: 'Fresco y Saludable',
-                imageUrl: 'https://lunagrill.com/wp-content/uploads/2015/08/Salads-Greek.jpg',
+                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg',
                 category: 3,
                 usd_price: 5.00,
                 cop_price: 12000
