@@ -33,6 +33,7 @@ export default class Menu extends Component {
         <View style={styles.itemLista}>
             <Image source={{uri: item.imageUrl}} style={styles.bgimage}>
                 <Text style={styles.titulo}>{item.name_en}</Text>
+                <Text style={styles.descripcion}>{item.description_en}</Text>
             </Image>
         </View>
     );
@@ -92,9 +93,10 @@ const styles = StyleSheet.create({
         marginRight: -20
     },
     bgimage: {
-        flexDirection: 'column',
         flex: 1,
-        height: 150
+        height: 150,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     itemLista: {
         height: 150,
@@ -104,9 +106,11 @@ const styles = StyleSheet.create({
     titulo: {
         color: '#fff',
         fontSize: 22,
-        textAlign: 'center',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
+        textAlign: 'center'
+    },
+    descripcion: {
+        color: '#fff',
+        fontSize: 16,
+        textAlign: 'center'
     }
 });
