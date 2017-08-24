@@ -7,7 +7,7 @@ function Api() {
                 name_es: 'Ensaladas',
                 description_en: 'Fresh and Healthy',
                 description_es: 'Fresco y Saludable',
-                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg'
+                imageUrl: 'https://unareceta.com/wp-content/uploads/2016/10/ensaladas.jpg'
             },
             {
                 key: 2,
@@ -15,7 +15,7 @@ function Api() {
                 name_es: 'Pizza',
                 description_en: 'The Italian Way',
                 description_es: 'The Italian Way',
-                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg'
+                imageUrl: 'http://pizzaamericana.co/img/0147/343.jpg'
             },
             {
                 key: 3,
@@ -23,7 +23,7 @@ function Api() {
                 name_es: 'Comida Espa',
                 description_en: 'The Italian Way',
                 description_es: 'The Italian Way',
-                imageUrl: 'http://cdn2.salud180.com/sites/default/files/styles/gallerie/public/field/image/2014/01/comida_chatarra_mas_danina.jpg.jpg'
+                imageUrl: 'http://www.open.edu/openlearn/ocw/pluginfile.php/775611/mod_resource/content/0/l194_2_cover_image_1%20%281%29.jpg'
             }
         ],
         products: [
