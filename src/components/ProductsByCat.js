@@ -3,12 +3,14 @@ import {
     Text,
     View,
     StyleSheet,
+    FlatList,
+    Image,
     TouchableHighlight
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'
 
-const rightIcon = (<Icon name="shopping-cart" size={30} color="#fff" />)
-const leftIcon = (<Icon name="chevron-left" size={30} color="#fff" />)
+import HeaderStack from './HeaderStack';
+
+import Api from'../data/miniapi';
 
 export default class ProductsByCat extends Component {
     constructor(props) {
@@ -18,21 +20,31 @@ export default class ProductsByCat extends Component {
     static navigationOptions = {
         header: null
     }
+
+    _renderItem = ({item}) => (
+        <TouchableHighlight style={styles.prodWrap} onPress={() => this.props.navigation.navigate('FoodDetail', {title: item.name_en, product: item})}>
+            <View style={styles.wrapCont}>
+                <Image source={{uri: item.imageUrl}} style={styles.image}/>
+                <View style={styles.rightContainer}>
+                    <Text style={styles.product}>{item.name_en}</Text>
+                    <Text style={styles.description}>{item.description_en}</Text>
+                    <Text style={styles.price}>from ${item.small}</Text>
+                </View>
+            </View>
+        </TouchableHighlight>
+    );
     
     render() {
         const {goBack} = this.props.navigation;
+        let cat_key = this.props.navigation.state.params.key;
         return(
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <TouchableHighlight style={styles.leftButton} underlayColor='#f09' onPress={()=>goBack()}>
-                        { leftIcon }
-                    </TouchableHighlight>
-                    <Text style={styles.title}>Category</Text>
-                    <TouchableHighlight style={styles.rightButton}>
-                        { rightIcon }
-                    </TouchableHighlight>
-                </View>
-                <Text style={styles.text}>Products By Category Screen</Text>
+                <HeaderStack goBack={goBack} title={this.props.navigation.state.params.title}/>
+                <FlatList style={styles.listaProd}
+                    data={Api.getProductsByCat(cat_key)}
+                    renderItem={this._renderItem}
+                    SeparatorComponent={() => <View style={listSeparator} />}
+                />
             </View>
         );
     }
@@ -43,28 +55,43 @@ const styles = StyleSheet.create({
         backgroundColor: '#eee',
         flex: 1
     },
-    title: {
-        marginTop: 30,
-        fontSize: 18,
-        color: '#fff',
-        flex: 70,
-        textAlign: 'center'
+    listaProd: {
+        padding: 10
     },
-    header: {
-        backgroundColor: '#f09',
-        flexDirection: 'row',
-        height: 70,
-        justifyContent: 'space-between'
+    listSeparator: {
+        height: 20,
+        backgroundColor: '#eee'
     },
-    leftButton: {
-        flex:15,
-        marginTop: 32,
-        marginLeft: 10
+    prodWrap: {
+        padding: 5,
+        height: 100,
+        backgroundColor: '#fff',
     },
-    rightButton: {
-        flex:15,
-        marginTop: 32,
-        marginRight: -20
+    image: {
+        borderRadius: 10,
+        flex: 0.30,
+        height: 90
+    },
+    rightContainer: {
+        flex: 0.7,
+        padding: 10
+    },
+    product: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    description: {
+        fontSize: 13,
+        color: '#555'
+    },
+    price: {
+        fontSize: 10,
+        fontStyle: 'italic',
+        color: '#111'
+    },
+    wrapCont: {
+        flex: 1,
+        flexDirection: 'row'
     }
   });
   

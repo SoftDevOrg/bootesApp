@@ -6,31 +6,25 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
+import HeaderStack from './HeaderStack';
+
 const rightIcon = (<Icon name="shopping-cart" size={30} color="#fff" />)
 const leftIcon = (<Icon name="chevron-left" size={30} color="#fff" />)
 
 export default class FoodDetail extends Component {
     constructor(props) {
         super(props);
-    }    
-    
-    _goBack() {
-        const {goBack} = this.props.navigation.state.params;
-        goBack();
+    }  
+
+    static navigationOptions = {
+        header: null
     }
 
     render() {
+        const {goBack} = this.props.navigation;
         return(
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <TouchableHighlight style={styles.leftButton} underlayColor='#f09' onPress={this._goBack()}>
-                        { leftIcon }
-                    </TouchableHighlight>
-                    <Text style={styles.title}>Food</Text>
-                    <TouchableHighlight style={styles.rightButton}>
-                        { rightIcon }
-                    </TouchableHighlight>
-                </View>
+                <HeaderStack goBack={goBack} title={this.props.navigation.state.params.title}/>
                 <Text style={styles.text}>Food Detail Screen</Text>
             </View>
         );

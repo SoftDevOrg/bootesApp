@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
+import HeaderDrawer from './HeaderDrawer';
+
 export default class Contact extends Component {
     static navigationOptions = {
         drawerLabel: 'Contact',
@@ -16,10 +18,15 @@ export default class Contact extends Component {
                 style={{color: tintColor}} 
             />)
     }
+
+    open() {
+        this.props.navigation.navigate('DrawerOpen');
+    }
     
     render() {
         return(
             <View style={styles.container}>
+                <HeaderDrawer open={this.open.bind(this)}/>
                 <Text style={styles.text}>Contact Screen</Text>
             </View>
         );

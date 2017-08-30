@@ -9,10 +9,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Api from'../data/miniapi';
+import HeaderDrawer from './HeaderDrawer';
 
-const rightIcon = (<Icon name="shopping-cart" size={30} color="#fff" />)
-const leftIcon = (<Icon name="bars" size={30} color="#fff" />)
+import Api from'../data/miniapi';
 
 export default class Menu extends Component {
     constructor(props) {
@@ -26,9 +25,7 @@ export default class Menu extends Component {
     _renderItem = ({item}) => (
         <TouchableHighlight 
             style={styles.itemLista} 
-            onPress={() => {
-                return this.props.navigation.navigate('ProductsByCat')}
-            }
+            onPress={() => this.props.navigation.navigate('ProductsByCat', {title: item.name_en, key: item.key})}
         >
             <Image source={{uri: item.imageUrl}} style={styles.bgimage}>
                 <Text style={styles.titulo}>{item.name_en}</Text>
@@ -44,15 +41,7 @@ export default class Menu extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <TouchableHighlight style={styles.leftButton} underlayColor='#f09' onPress={this.open.bind(this)}>
-                        { leftIcon }
-                    </TouchableHighlight>
-                    <Text style={styles.title}>Menu</Text>
-                    <TouchableHighlight style={styles.rightButton}>
-                        { rightIcon }
-                    </TouchableHighlight>
-                </View>
+                <HeaderDrawer open={this.open.bind(this)}/>
                 <FlatList style={styles.listaCat}
                     data={Api.getCategories()}
                     renderItem={this._renderItem}
@@ -66,29 +55,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#eee',
         flex: 1
-    },
-    title: {
-        marginTop: 30,
-        fontSize: 18,
-        color: '#fff',
-        flex: 70,
-        textAlign: 'center'
-    },
-    header: {
-        backgroundColor: '#f09',
-        flexDirection: 'row',
-        height: 70,
-        justifyContent: 'space-between'
-    },
-    leftButton: {
-        flex:15,
-        marginTop: 32,
-        marginLeft: 10
-    },
-    rightButton: {
-        flex:15,
-        marginTop: 32,
-        marginRight: -20
     },
     bgimage: {
         flex: 1,

@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
+import HeaderDrawer from './HeaderDrawer';
+
 export default class Cart extends Component {
     static navigationOptions = {
         drawerLabel: 'Cart',
@@ -16,10 +18,15 @@ export default class Cart extends Component {
                 style={{color: tintColor}} 
             />)
     }
+
+    open() {
+        this.props.navigation.navigate('DrawerOpen');
+    }
     
     render() {
         return(
             <View style={styles.container}>
+                <HeaderDrawer open={this.open.bind(this)}/>
                 <Text style={styles.text}>Cart Screen</Text>
             </View>
         );
