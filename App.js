@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -7,17 +7,45 @@ import {
 
 import {
   DrawerNavigator,
-  DrawerItems
-} from 'react-navigation'
+  DrawerItems,
+  StackNavigator
+} from 'react-navigation';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Menu from './src/components/Menu';
+import ProductsByCat from './src/components/ProductsByCat';
+import FoodDetail from './src/components/FoodDetail';
 import Cart from './src/components/Cart';
 import Callus from './src/components/Callus';
-import Contact from './src/components/Contact'; 
+import Contact from './src/components/Contact';
+
+const StackNav = StackNavigator({
+  Menu: {
+    screen: Menu
+  },
+  ProductsByCat: {
+    screen: ProductsByCat
+  },
+  FoodDetail: {
+    screen: FoodDetail
+  }
+}, {
+  initialRouteName: 'Menu'
+});
 
 const App = DrawerNavigator({
   Menu: {
-    screen: Menu
+    screen: StackNav,
+    navigationOptions: {
+        drawerLabel: 'Menu',
+        drawerIcon:({tintColor}) =>(
+            <Icon 
+                name='shopping-basket'
+                size={18} 
+                style={{color: tintColor}} 
+            />)
+      }
   },
   Cart: {
     screen: Cart
@@ -56,7 +84,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   headerDrawer: {
-    flex: 0.7,
+    flex: 0.6,
     backgroundColor: '#f09'
   },
   item: {

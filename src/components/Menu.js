@@ -20,22 +20,21 @@ export default class Menu extends Component {
     }
 
     static navigationOptions = {
-        drawerLabel: 'Menu',
-        drawerIcon:({tintColor}) =>(
-            <Icon 
-                name='shopping-basket'
-                size={18} 
-                style={{color: tintColor}} 
-            />)
+        header: null
     }
 
     _renderItem = ({item}) => (
-        <View style={styles.itemLista}>
+        <TouchableHighlight 
+            style={styles.itemLista} 
+            onPress={() => {
+                return this.props.navigation.navigate('ProductsByCat')}
+            }
+        >
             <Image source={{uri: item.imageUrl}} style={styles.bgimage}>
                 <Text style={styles.titulo}>{item.name_en}</Text>
                 <Text style={styles.descripcion}>{item.description_en}</Text>
             </Image>
-        </View>
+        </TouchableHighlight>
     );
 
     open() {
@@ -44,7 +43,6 @@ export default class Menu extends Component {
 
     render() {
         return(
-            
             <View style={styles.container}>
                 <View style={styles.header}>
                     <TouchableHighlight style={styles.leftButton} underlayColor='#f09' onPress={this.open.bind(this)}>
@@ -94,7 +92,7 @@ const styles = StyleSheet.create({
     },
     bgimage: {
         flex: 1,
-        height: 150,
+        height: 200,
         alignItems: 'center',
         justifyContent: 'center'
     },
