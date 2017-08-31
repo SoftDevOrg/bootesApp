@@ -21,7 +21,7 @@ export default class HeaderDrawer extends Component {
                 <TouchableHighlight style={styles.leftButton} underlayColor='#f09' onPress={this.props.open}>
                     { leftIcon }
                 </TouchableHighlight>
-                <Text style={styles.title}>Menu</Text>
+                <Text style={styles.title}>{this.props.title}</Text>
                 <TouchableHighlight style={styles.rightButton}>
                     { rightIcon }
                 </TouchableHighlight>

@@ -26,7 +26,7 @@ export default class Cart extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <HeaderDrawer open={this.open.bind(this)}/>
+                <HeaderDrawer title={'Cart'} open={this.open.bind(this)}/>
                 <Text style={styles.text}>Cart Screen</Text>
             </View>
         );
@@ -36,9 +36,7 @@ export default class Cart extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#777',
-        alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: '#777'
     },
     text: {
         fontSize: 22,

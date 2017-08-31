@@ -26,8 +26,10 @@ export default class Callus extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <HeaderDrawer open={this.open.bind(this)} />
-                <Text style={styles.text}>Call Us Screen</Text>
+                <HeaderDrawer title={'Call Us'} open={this.open.bind(this)} />
+                <View style={styles.textCont}>
+                    <Text style={styles.text}>Call Us Screen</Text>
+                </View>
             </View>
         );
     }
@@ -35,7 +37,9 @@ export default class Callus extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
+    },
+    textCont: {
         backgroundColor: '#777',
         alignItems: 'center',
         justifyContent: 'center'

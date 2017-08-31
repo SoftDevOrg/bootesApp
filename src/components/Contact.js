@@ -26,7 +26,7 @@ export default class Contact extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <HeaderDrawer open={this.open.bind(this)}/>
+                <HeaderDrawer title={'Contact'} open={this.open.bind(this)}/>
                 <Text style={styles.text}>Contact Screen</Text>
             </View>
         );
@@ -36,9 +36,7 @@ export default class Contact extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#777',
-        alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: '#777'
     },
     text: {
         fontSize: 22,

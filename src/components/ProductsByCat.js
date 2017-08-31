@@ -22,7 +22,7 @@ export default class ProductsByCat extends Component {
     }
 
     _renderItem = ({item}) => (
-        <TouchableHighlight style={styles.prodWrap} onPress={() => this.props.navigation.navigate('FoodDetail', {title: item.name_en, product: item})}>
+        <TouchableHighlight style={styles.prodWrap} underlayColor='#fef' onPress={() => this.props.navigation.navigate('FoodDetail', {title: item.name_en, product: item})}>
             <View style={styles.wrapCont}>
                 <Image source={{uri: item.imageUrl}} style={styles.image}/>
                 <View style={styles.rightContainer}>
@@ -43,7 +43,7 @@ export default class ProductsByCat extends Component {
                 <FlatList style={styles.listaProd}
                     data={Api.getProductsByCat(cat_key)}
                     renderItem={this._renderItem}
-                    SeparatorComponent={() => <View style={listSeparator} />}
+                    ItemSeparatorComponent={() => <View style={styles.listSeparator} />}
                 />
             </View>
         );
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
         padding: 10
     },
     listSeparator: {
-        height: 20,
+        height: 12,
         backgroundColor: '#eee'
     },
     prodWrap: {
         padding: 5,
         height: 100,
-        backgroundColor: '#fff',
+        backgroundColor: '#fff'
     },
     image: {
         borderRadius: 10,
@@ -74,7 +74,9 @@ const styles = StyleSheet.create({
     },
     rightContainer: {
         flex: 0.7,
-        padding: 10
+        padding: 10,
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     },
     product: {
         fontSize: 16,
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     price: {
         fontSize: 10,
         fontStyle: 'italic',
-        color: '#111'
+        color: '#111',
     },
     wrapCont: {
         flex: 1,

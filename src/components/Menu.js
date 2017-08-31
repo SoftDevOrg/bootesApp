@@ -41,7 +41,7 @@ export default class Menu extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <HeaderDrawer open={this.open.bind(this)}/>
+                <HeaderDrawer title={'Menu'} open={this.open.bind(this)}/>
                 <FlatList style={styles.listaCat}
                     data={Api.getCategories()}
                     renderItem={this._renderItem}
